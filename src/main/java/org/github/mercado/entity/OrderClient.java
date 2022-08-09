@@ -1,14 +1,14 @@
 package org.github.mercado.entity;
 
-import sun.util.resources.LocaleData;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class OrderClient {
 
     private Integer id;
     private Client client;
-    private LocaleData orderData;
+    private Date orderData;
     private BigDecimal total;
 
     public Integer getId() {
@@ -27,11 +27,11 @@ public class OrderClient {
         this.client = client;
     }
 
-    public LocaleData getOrderData() {
+    public Date getOrderData() {
         return orderData;
     }
 
-    public void setOrderData(LocaleData orderData) {
+    public void setOrderData(Date orderData) {
         this.orderData = orderData;
     }
 
