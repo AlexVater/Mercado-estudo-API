@@ -18,26 +18,16 @@ public class MercadoApplication {
     @Bean
     public CommandLineRunner init(@Autowired ClientRepository clientRepository) {
         return args -> {
-            clientRepository.save(new Client("Cliente 1"));
-            clientRepository.save(new Client("Cliente 2"));
+            clientRepository.saveClient(new Client("João"));
+            clientRepository.saveClient(new Client("Maria"));
 
-            clientRepository.getAll().forEach(System.out::println);
+            clientRepository.findByName("João").forEach(System.out::println);
 
-            clientRepository.getAll().forEach(client -> {
-                        client.setName(client.getName() + " - Atualizado");
-                        clientRepository.update(client);
-                    }
-            );
+            clientRepository.updateClient(new Client(1, "João - Atualizado"));
 
-            clientRepository.findByName("Clien").forEach(System.out::println);
+            clientRepository.deleteClient(2);
 
-            clientRepository.getAll().forEach(client -> {
-                        clientRepository.delete(client.getId());
-                    }
-            );
-
-            clientRepository.getAll().forEach(System.out::println);
-
+            clientRepository.getAllClient().forEach(System.out::println);
         };
     }
 }

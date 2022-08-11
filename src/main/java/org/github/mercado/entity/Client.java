@@ -1,7 +1,16 @@
 package org.github.mercado.entity;
 
+import javax.persistence.*;
+
+@Entity
 public class Client {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
+
+    @Column(name = "name", length = 100)
     private String name;
 
     public Client() {
